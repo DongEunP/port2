@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="css/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="css/media.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
@@ -15,7 +16,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
   <script src="js/swiper-bundle.min.js"></script>
-  <script src="/js/script.js"></script>
+  <script defer src="/js/script.js"></script>
   <script src="https://kit.fontawesome.com/6b9483975b.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -24,16 +25,20 @@
     <nav>
       <h1>rIo oLn</h1>
       <div class="gnb">
+        <div class="gnb_btn"><span></span><span></span><span></span></div>
         <ul>
-          <li>main</li>
-          <li>about me</li>
-          <li>portfolio</li>
-          <li>gallery</li>
-          <li>contact</li>
+          <li href="body">main</li>
+          <li href=".about">about me</li>
+          <li href=".web_modeling">portfolio</li>
+          <li href=".sec04">gallery</li>
+          <li href="footer">contact</li>
         </ul>
       </div>
       <div class="hbg"></div>
     </nav>
+    <div class="scrtop">
+      <i class="fa-regular fa-circle-up"></i>
+    </div>
   </header>
 
   <!-- 메인 -->
@@ -55,7 +60,10 @@
     <section class="about">
       <div class="about_wrap">
         <div class="info">
-          <img src="img/profile.jpg" alt="">
+          <div class="info_title">
+            <h2>ABOUT ME</h2>
+            <img src="img/profile.jpg" alt="">
+          </div>
           <div class="info_wrap">
             <div class="profile">
               <div class="career">
@@ -159,7 +167,7 @@
                   <dl>
                     <h3>나래디자인</h3>
                     <dt>프로젝트 타입</dt>
-                    <dd>(주)나래디자인 공식페이지 디자인(반응형)</dd>
+                    <dd>(주)나래디자인 반응형웹페이지 디자인</dd>
                     <dt>제작물</dt>
                     <dd>메인 / 서브7 (서브 및 3뎁스 전체)</dd>
                     <dt>참여도</dt>
@@ -181,7 +189,7 @@
                   <dl>
                     <h3>퍼스널퍼퓸</h3>
                     <dt>프로젝트 타입</dt>
-                    <dd>(주)퍼스널퍼퓸 공식페이지 디자인(반응형)</dd>
+                    <dd>(주)퍼스널퍼퓸 반응형웹페이지 디자인</dd>
                     <dt>제작물</dt>
                     <dd>메인 / 서브4 (서브 및 3뎁스 전체)</dd>
                     <dt>참여도</dt>
@@ -203,7 +211,7 @@
                   <dl>
                     <h3>현엔터테인먼트</h3>
                     <dt>프로젝트 타입</dt>
-                    <dd>현엔터테인먼트 공식페이지 디자인</dd>
+                    <dd>현엔터테인먼트 반응형웹페이지 디자인</dd>
                     <dt>제작물</dt>
                     <dd>원페이지 전체</dd>
                     <dt>참여도</dt>
@@ -396,116 +404,190 @@
           <img src="img/port2_max11.png" alt="">
         </div>
       </div>
-
-
     </section>
-    <!-- <section class="illu_design">
-      <div class="illu_title">
-        <div class="banner_txt">
-          <h2>Banner Design</h2>
-          <p>(주)블루콩 sns 마케팅 배너</p>
-        </div>
-        <div class="illu_txt">
-          <h2>Illust</h2>
-          <p>개인 일러스트 모음</p>
-        </div>
-      </div>
-      <div class="illu_img">
-        <div class="banner_wrap">
-          <div class="banner">
-            <div class="banner_item">
-              <img src="img/sec04_banne" alt="" class="swiper-slide">
-              <img src="img/sec04_banner (2).jpg" alt="" class="banner_slide">
-              <img src="img/sec04_banner (3).jpg" alt="" class="banner-slide">
-              <img src="img/sec04_banner (4).jpg" alt="" class="banner-slide">
-              <img src="img/sec04_banner (5).jpg" alt="" class="banner-slide">
-              <img src="img/sec04_banner (6).jpg" alt="" class="banner-slide">
-              <img src="img/sec04_banner (7).jpg" alt="" class="banner-slide">
-              <img src="img/sec04_banner (8).jpg" alt="" class="banner-slide">
-            </div>
-          </div>
-          <div class="banner2 swiper2">
-            <div class="banner_item1">
-              <img src="img/sec04_banner (9).jpg" alt="" class="banner-slide">
-              <img src="img/sec04_banner (10).jpg" alt="" class="banner-slide">
-              <img src="img/sec04_banner (11).jpg" alt="" class="banner-slide">
-              <img src="img/sec04_banner (12).jpg" alt="" class="banner-slide">
-              <img src="img/sec04_banner (13).jpg" alt="" class="banner-slide">
-              <img src="img/sec04_banner (14).jpg" alt="" class="banner-slide">
-              <img src="img/sec04_banner (15).jpg" alt="" class="banner-slide">
-              <img src="img/sec04_banner (16).jpg" alt="" class="banner-slide">
-            </div>
-          </div>
-        </div>
-        <div class="illust">
-          <img src="img/sec04_illu01.jpg" alt="">
-          <img src="img/sec04_illu02.jpg" alt="">
-          <img src="img/sec04_illu03.jpg" alt="">
-          <img src="img/sec04_illu04.jpg" alt="">
-          <img src="img/sec04_illu05.jpg" alt="">
-          <img src="img/sec04_illu06.jpg" alt="">
-          <img src="img/sec04_illu07.jpg" alt="">
-          <img src="img/sec04_illu08.jpg" alt="">
-          <img src="img/sec04_illu09.jpg" alt="">
-          <img src="img/sec04_illu10.jpg" alt="">
-        </div>
-      </div>
-    </section> -->
-    <!-- <section class="sec_gallery">
-      <div class="gallery_txt">
-        <div class="gal_txt_wrap">
-          <h2 class="header-section">Gallery</h2>
-          <p>(주)블루콩 sns 광고 배너 / 개인 일러스트</p>
-        </div>
-      </div>
-      
-      <div class="grid-container">
-        <div class="grid">
-          <div class="gridLayer">
-            <div class="gridBlock"><img src="img/sec04_banner (2).jpg" alt=""></div>
-          </div>
-          <div class="gridLayer">
-            <div class="gridBlock"><img src="img/sec04_banner (3).jpg" alt=""></div>
-          </div>
-          <div class="gridLayer">
-            <div class="gridBlock"><img src="img/sec04_banner (4).jpg" alt=""></div>
-          </div>
-          <div class="gridLayer centerPiece">
-            <div class="gridBlock centerBlock"><img src="img/sec04_banner (5).jpg" alt=""></div>
-          </div>
-          <div class="gridLayer">
-            <div class="gridBlock"><img src="img/sec04_banner (6).jpg" alt=""></a></div>
-          </div>
-          <div class="gridLayer">
-            <div class="gridBlock"><img src="img/sec04_banner (7).jpg" alt=""></div>
-          </div>
-          <div class="gridLayer">
-            <div class="gridBlock"><img src="img/sec04_banner (8).jpg" alt=""></div>
-          </div>
-          <div class="gridLayer">
-            <div class="gridBlock"><img src="img/sec04_banner (9).jpg" alt=""></div>
-          </div>
-          <div class="gridLayer">
-            <div class="gridBlock"><img src="img/sec04_banner (10).jpg" alt=""></div>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
-    
-    <section class="contact"></section>
+    <section class="sec04">
+      <div class="main_img">
+        <div class="gall_txt">
+          <h2>GALLERY</h2>
+          <p>web_design/banner_design</p>
+        </div>
+        <div class="gall_wrap">
+          <div class="visual">
+            <div class="etc_hover">
+              <div class="etc_hover_txt">
+                <h3>MAIN<br>VISUAL</h3>
+                <P>(주)블루콩 자사몰</P>
+              </div>
+              <div class="etc_btn">
+                <a href="mv.html" target="_blank">CLICK</a>
+              </div>
+            </div>
+            <!-- <div class="visual_inner">
+              <div class="inner_wrap">
+                <div class="main_mv_img swiper1">
+                  <div class="sec04_mv_close"><i class="fa-solid fa-circle-xmark"></i></div>
+                  <div class="main_mv_txt">
+                    <h3>자사몰 메인비쥬얼</h3>
+                    <p>제품 이미지를 합성, 편집하여 (주)블루콩 자사몰 메인비쥬얼 및 섹션 이미지로 사용되었습니다.</p>
+                    <a href="https://pureo2bluekong.com/index.html" class="main_mv_btn">관련사이트<br>바로가기</a>
+                  </div>
+                  <div class="visual_img swiper-wrapper">
+                    <img src="img/sec04_mv01.png" alt="" class="swiper-slide">
+                    <img src="img/sec04_mv02.png" alt="" class="swiper-slide">
+                    <img src="img/sec04_mv03.png" alt="" class="swiper-slide">
+                  </div>
+                </div>
+                <div class="main_art_img swiper2">
+                  <div class="article_img">
+                    <img src="img/sec04_mv05.jpg" alt="">
+                    <img src="img/sec04_mv06.jpg" alt="">
+                    <img src="img/sec04_mv07.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <div class="leaflet">
+            <div class="etc_hover">
+              <div class="etc_hover_txt">
+                <h3>LEAFLET<br>DESIGN</h3>
+                <P>(주)블루콩 제품소개서</P>
+              </div>
+              <div class="etc_btn">
+                <a href="leaf.html" target="_blank">CLICK</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-text scrolling">
+        <div class="wrapper text">
+          SNS_BANNER_DESIGN
+        </div>
+      </div>
+      <!-- Iteration 1 -->
+      <div class="demo-gallery scrolling">
+        <ul class="wrapper">
+          <li>
+            <img src="img/sec04_banner (2).jpg">
+          </li>
+          <li>
+            <img src="img/sec04_banner (3).jpg">
+          </li>
+          <li>
+            <img src="img/sec04_banner (4).jpg">
+          </li>
+          <li>
+            <img src="img/sec04_banner (5).jpg">
+          </li>
+          <li>
+            <img src="img/sec04_banner (6).jpg">
+          </li>
+        </ul>
+      </div>
+      <!-- Iteration 2 -->
+      <div class="demo-gallery scrolling">
+        <ul class="wrapper">
+          <li>
+            <img src="img/sec04_banner (7).jpg">
+          </li>
+          <li>
+            <img src="img/sec04_banner (8).jpg">
+          </li>
+          <li>
+            <img src="img/sec04_banner (9).jpg">
+          </li>
+          <li>
+            <img src="img/sec04_banner (10).jpg">
+          </li>
+          <li>
+            <img src="img/sec04_banner (11).jpg">
+          </li>
+        </ul>
+      </div>
+      <div class="demo-gallery scrolling">
+        <ul class="wrapper">
+          <li>
+            <img src="img/sec04_banner (12).jpg">
+          </li>
+          <li>
+            <img src="img/sec04_banner (13).jpg">
+          </li>
+          <li>
+            <img src="img/sec04_banner (14).jpg">
+          </li>
+          <li>
+            <img src="img/sec04_banner (15).jpg">
+          </li>
+          <li>
+            <img src="img/sec04_banner (16).jpg">
+          </li>
+        </ul>
+      </div>
+    </section>
   </main>
 
   <!-- 푸터 -->
   <footer>
-    <div class="scrtop">
-      <i class="fa-regular fa-circle-up"></i>
+    <div class="form_wrap">
+      <h2>CONTACT</h2>
+      <div class="con_box">
+        <div class="con_wrap">
+          <form class="gform" method="POST" data-email="cutesm27@gmal.com" target = iframe1 action="https://script.google.com/macros/s/AKfycbzV-71NlKJiUJt67iFbCCGQmxY3u1EyOnjb6Q29zAJ_W_LC7752_Dq_Vl_GB7laNUfr/exec">
+            <ul>
+              <li>
+                <label for="con_name">NAME</label>
+                <input type="text" name="name" id="con_name" title="NAME" placeholder="이름" required autocomplete="off" >
+              </li>
+              <li>
+                <label for="con_email">E-MAIL</label>
+                <input type="email" name="email" id="con_email" title="E-MAIL" placeholder="메일주소" required autocomplete="off" >
+              </li>
+              <li>
+                <label for="con_sub">SUBJECT</label>
+                <input type="text" name="subject" id="con_sub" title="SUBJECT" placeholder="제목" required autocomplete="off" > 
+              </li>
+              <li>
+                <label for="con_message">MESSAGE</label>
+                <textarea style="height: 70%;" id="con_message" name="message" title="MESSAGE" rows="10" placeholder="보내실 내용을 입력해주세요." required autocomplete="off" ></textarea>
+              </li>
+            </ul>
+            <div class="send">
+              <p>본인은 개인정보 보호법 제 15조에 의거하여 본인의 개인정보(이메일)를 제공할 것을 동의합니다.</p>
+              <div class="check">
+                <input type="checkbox" name="agree" id="agree" required checked>
+                <label for="agree">개인정보 수집 내용에 동의합니다.</label>
+              </div>
+              <button type="submit" name="submit" id="submit">SEND MAIL</button>
+            </div>
+          </form>
+          <iframe id="iframe1" name="iframe1" style="display:none"></iframe>
+          <div class="sns">
+            <a href="https://open.kakao.com/o/szwEek5e"><img src="img/kakao.png" alt=""></a>
+            <a href="https://www.instagram.com/rlo_ofn"><img src="img/instargram.png" alt=""></a>
+            <a href=""><img src="img/github.png" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="send_pop_bg">
+      <div class="send_pop">
+        <b>메일 발송 완료!</b>
+        <p>빠른 시일 내로 답변 도와드리겠습니다!<br>감사합니다 :D</p>
+        <div class="send_pop_close">
+          <div><div></div></div>
+        </div>
+      </div>
     </div>
   </footer>
+  <script data-cfasync="false" type="text/javascript" src="js/form-submission-handler.js">
+  </script> 
   <!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
       window.gambitScrollKeyAmount = 16
     });
   </script> -->
+
 </body>
 </html>

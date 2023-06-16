@@ -1,4 +1,4 @@
-body{
+html,body{
   overflow-x: hidden;
 }
 header {
@@ -6,9 +6,9 @@ header {
   height: 60px;
   position: fixed;
   padding: 0 20px;
-  z-index: 999;
+  z-index: 99999;
   /* background-color: transparent; */
-  mix-blend-mode:difference;
+  /* mix-blend-mode:difference; */
 }
 header h1 {
   width: 100px;
@@ -23,16 +23,30 @@ header nav {
 }
 .gnb {
   width: 50%;
+  text-transform: uppercase;
 }
 .gnb ul {
   display: flex;
   justify-content: space-between;
 }
+.gnb ul li{
+  cursor: pointer;
+}
 
 .hbg {
   display: none;
 }
-
+.scrtop{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+}
+.scrtop i{
+  padding: 10px;
+  font-size: 2rem;
+  color: #000;
+}
 /* 메인 */
 
 /* 섹션공통 */
@@ -112,7 +126,7 @@ section{
   background-color: #777777;
   position: absolute;
   /* left: 50%; */
-  transform: translateX(-2.5px);
+  transform: translateX(-3px);
   animation: bar 3s ease-in-out infinite;
 }
 @keyframes bar {
@@ -134,7 +148,7 @@ section{
   justify-content: center;
 }
 .about_wrap{
-  width: 70%;
+  width: 80%;
   height: 80%;
   background-color: rgba(225, 225, 225, .5);
   backdrop-filter: saturate(180%) blur(15px);
@@ -199,17 +213,28 @@ section{
   background-size: 100% 200%;
 }
 .info{
-  width: 100%;
+  width: 95%;
   height: 48.5%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-self: center;
 }
-.info>img{
+.info_title{
+  width: 50%;
+  height: 100%;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.info_title>img{
+  width: 100%;
+  height: 85%;
   border-radius: 30px 0 30px 0;
+  object-fit: cover;
+  object-position: 0 -130px;
 }
 .info_wrap{
-  width: 68.5%;
   display: flex;
   justify-content: space-between;
 }
@@ -250,7 +275,7 @@ section{
   width: 30%;
 }
 .skill{
-  width: 100%;
+  width: 95%;
   height: 48.5%;
   border-radius: 30px;
   background-color: #fff;
@@ -705,22 +730,337 @@ h2{
   position: absolute;
 }
 
+/* sec04 */
+:root { font-size: 16px }
+@media (max-width: 500px) { :root { font-size: 14px } }
+
+.sec04{
+  height: max-content;
+  position: relative;
+}
+.sec04 ul {
+  padding-left: 1rem;
+  list-style: none;
+}
+
+.sec04 li {
+  padding-right: 1rem;
+}
+.sec04 img{
+  width: clamp(200px, 600px, 1200px);
+}
+
+.wrapper {
+  display: flex;
+}
+
+.demo-gallery:not(.last) {
+  padding-bottom: 1rem;
+}
+
+.demo-text .text {
+  font-size: clamp(4rem, 12vw, 10rem);
+  line-height: 1;
+  font-weight: 900;
+  margin: 100px 0 50px 0;
+}
+
+.sec04 .main_img{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.sec04 .main_img .gall_txt{
+  text-align: center;
+  color: #000;
+  margin: 100px 0;
+}
+.sec04 .gall_wrap{
+  height: 55%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.sec04 .gall_wrap>div{
+  width: 40%;
+  height: 60%;
+  border-radius: 20px;
+
+}
+.sec04 .gall_wrap .visual{
+  background: url(../img/sec04_mv01.png) no-repeat;
+  background-size: cover;
+  justify-content: end;
+  align-items: start;
+}
+.sec04 .gall_wrap .visual:hover .etc_hover{
+  opacity: 1;
+  transition: .5s;
+}
+.etc_hover{
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  padding: 5%;
+}
+.sec04 .gall_wrap .etc_btn{
+  display: grid;
+  justify-self: end;
+}
+.sec04 .gall_wrap .etc_hover_txt{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding: 0 3% 2% 0;
+}
+.sec04 .gall_wrap h3{
+  font-size: 5vw;
+  color: white;
+  text-align: right;
+}
+.sec04 .gall_wrap p{
+  font-size: 1.25vw;
+  color: white;
+}
+.sec04 .gall_wrap .etc_btn{
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #f7d241;
+  text-align: center;
+  line-height: 40px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.sec04 .main_img .leaflet{
+  background: url(../img/sec04_leaf04.png) no-repeat;
+  background-size: cover;
+  background-position: -3px;
+}
+.sec04 .main_img .leaflet:hover .etc_hover{
+  opacity: 1;
+  transition: .5s;
+}
+/* sec04 팝업 */
+.visual_inner{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  transition: 1s;
+  display: none;
+}
+.visual_inner .inner_wrap{
+  width: 90%;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+.visual_inner .inner_wrap .sec04_mv_close{
+  align-self: flex-end;
+  margin: 30px 30px 0 0;
+}
+.visual_inner .inner_wrap .sec04_mv_close i{
+  scale: 2;
+  color: #626262;
+}
+.visual_inner .inner_wrap .main_mv_img{
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.inner_wrap h3{
+  font-size: 1.5vw;
+  margin: 3% 0;
+}
+.inner_wrap p{
+  font-size: 1.125vw;
+  margin: 3% 0;
+}
+.inner_wrap a{
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #f7d241;
+  color: #333333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  margin:0 auto;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+  margin-bottom: 3%;
+}
+.inner_wrap .main_art_img .article_img{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 3% 0;
+}
+.inner_wrap .main_art_img .article_img img{
+  width: 30%;
+}
+
+
+
 /* 푸터 */
 footer{
   width: 100%;
-  height: 100px;
+  height: max-content;
   overflow: hidden;
-  position: fixed;
   bottom: 0;
   mix-blend-mode:overlay;
   z-index: 9999;
+  background-color: #151616;
+  color: #fff;
+  padding: 2%;
+  position: relative;
+  margin-top: 100px;
 }
-footer>div{
+footer form{
+  width: 50%;
+}
+footer input, footer textarea{
+  width: 90%;
+  height: 50px;
+  background-color: #151616;
+  border: none;
+  border-bottom: 1px solid #fff;
+  margin: 10px 0 20px 0;
+  color: #fff;
+}
+footer input:focus, footer textarea:focus{
+  outline: none;
+}
+footer li{
+  display: flex;
+  align-items: center;
+}
+footer li label{
+  width: 10%;
+}
+footer .con_wrap{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.send{
+  text-align: center;
+}
+.send .check{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.send input{
+  width: 20px;
+  margin-right: 10px;
+}
+.con_wrap button{
+  width: 100px;
+  height: 50px;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.con_wrap button:hover{
+  background-color: #a98c18;
+  color: white;
+}
+
+/* 메일 팝업 */
+.send_pop_bg{
   position: absolute;
-  bottom: 0;
-  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999999;
+  top: 0;
+  left: 0;
+  color: #000;
+  display: none;
 }
-footer i{
-  padding: 10px;
-  font-size: 2rem;
+.send_pop_bg .send_pop{
+  position: absolute;
+  width: 300px;
+  height: 180px;
+  border-radius: 20px;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.send_pop_bg .send_pop b{
+  font-size: 1.25rem;
+}
+.send_pop_bg .send_pop p{
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+}
+.send_pop_close{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.send_pop_close div{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.send_pop_close>div{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(45.36deg, #ECA658 0%, #F391A6 13.02%, #E188C3 25.52%, #A58DE3 37.5%, #56ABEC 49.48%, #737EB7 63.02%, #C8638C 72.92%, #DD5D57 84.38%, #DF6C51 97.92%);
+}
+.send_pop_close>div>div{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+}
+.send_pop_close>div>div::after {
+  position : absolute;
+  top : 4.5px;
+  left : 4.5px;
+  content : '';
+  display: block;
+  width : 10px;
+  height : 10px;
+  border-radius : 50%;
+  border : 1px solid rgba(0, 0, 0, 0.3);
+  transition : all .1s;
+  opacity : 0;
+}
+.send_pop_close>div>div.close::after{
+  -webkit-animation : circle .5s;
+  animation : circle .5s;
+}
+@-webkit-keyframes circle {
+  0% {-webkit-transform : scale(0.1); opacity : 0;}
+  50% {opacity : 1;}
+  100% {-webkit-transform : scale(5); opacity : 0;}
+}
+@keyframes circle {
+  0% {transform : scale(0.1); opacity : 0;}
+  50% {opacity : 1;}
+  100% {transform : scale(5); opacity : 0;
+  }
 }

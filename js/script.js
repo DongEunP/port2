@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $(".mv").append("<div class='intro'></div>"); // main 태그에 intro 클래스를 가진 div 추가
   $(".intro").append("<div class='intro_logo'>");
-  $(".intro_logo").animate({ rotate: "10deg" }, 500, function () {
+  $(".intro_logo").animate({ rotate: "25deg" }, 500, function () {
     $(".mv_bar").animate({ width: "10px", borderRadius: "50%" }, 1000);
     $(".intro").animate({ top: "-60%", borderRadius: "60%" }, 1000);
   });
@@ -168,46 +168,63 @@ $(document).ready(function () {
   });
 
   // 포트폴리오 슬라이드
-  const swiper = new Swiper(".swiper", {
-    slidesPerView: "auto",
-    spaceBetween: 15,
+  var swiper = new Swiper(".swiper", {
+    slidesPerView: 1,
+    spaceBetween: 10,
     loop: true,
-    autoplay: false,
+    autoplay: true,
     pagination: false,
+    breakpoints: {
+      1000:{
+        slidesPerView: 2,
+      },
+      1281: {
+        slidesPerView: 'auto',  //브라우저가 1024보다 클 때
+        spaceBetween: 15,
+      },
+    },
   });
-  // 슬라이드 마우스오버
-  // $(".swiper-slide").on("mouseover", function () {
-  //   swiper.autoplay.stop();
-  // });
-  // $(".swiper-slide").on("mouseout", function () {
-  //   swiper.autoplay.start();
-  // });
+  $('.swiper-slide').on('mouseover', function(){
+    swiper.autoplay.stop();
+  });
+  $('.swiper-slide').on('mouseout', function(){
+    swiper.autoplay.start();
+  });
 
   // 스크롤 이벤트
   $(window).scroll(function () {
-    var sectionHeight = $(".web_modeling").offset().top + 480;
     var scrollTop = $(window).scrollTop();
-    //로고클릭 화면이동
-    $("h1").click(function () {
-      $("body,html").animate({ scrollTop: 0 });
+    var menu = $('header li');
+        // 메뉴 클릭시 섹션 이동
+    menu.click(function (event) {
+      var target = $(this).attr("href"); // 클릭한 메뉴의 href 값을 가져옴
+      $("html").stop().animate(
+        {scrollTop: $(target).offset().top},
+        500
+      ); // 애니메이션 시간 (0.8초)
     });
-    // 메인 스크롤시 화면 변경
-    // if(scrollTop > $('.sec01').offset().top + 280){
-    //   $('.mv>h2').fadeOut();
-    //   $('.mv_bar').stop().animate({'width':'3000px','height':'3000px'},1000);
-    //   setTimeout(function() {
-    //     $('.mv_bar').css('border-radius', '0');
-    //   }, 1000);
-    // }else{
-    //   $('.mv>h2').css({'display':'block'});
-    //   $('.mv_bar').stop().css({'width':'10px','height':'10px','borderRadius':'50%'});
-    // }
-
+    // .scrtop 클릭시 상단이동
+    $("header .scrtop,h1").click(function () {
+      $("html,body").stop().animate(
+        {scrollTop: 0},
+        500
+      );
+    });
     // 헤더
+    var wW = $(window).innerWidth();
     if(scrollTop > $('.about').offset().top - 200){
       $('header').css({background:'#151616',color:'#fff'});
     }else{
       $('header').css({background:'#fff',color:'#000'});
+    }
+    if(wW <= 830){
+      if(scrollTop > $('.about').offset().top - 200){
+        $('.gnb_btn>span').css({background:'#fff'});
+        $('header .gnb ul').css({background:'#151616',color:'#fff'});
+      }else{
+        $('.gnb_btn>span').css({background:'#000'});
+        $('header .gnb ul').css({background:'#fff',color:'#000'});
+      }
     }
     // 스킬 스크롤
     var allDiv = $('.skill').find('div');
@@ -228,165 +245,54 @@ $(document).ready(function () {
       allDiv.css({ 'height': '0' });
     }
 
-    // 배너/일러 일러이미지 화면 튀어나오게
-    if (scrollTop > sectionHeight && scrollTop <= $(".contact").offset().top) {
-      //$('body').css({'overflow-y':'hidden'})
-      $(".illu_img").animate({ width: "70%", height: "90%" });
-    } else {
-      //$('body').css({'overflow-y':'scroll'})
-      $(".illu_img").css({ width: "0", height: "0" });
-    }
-
-    //배너/일러 스크롤 가동
-    // var scrollTop = $(this).scrollTop();
-    // var offsetTop = $(".illu_design").offset().top;
-
-
-    // if (scrollTop > offsetTop) {
-    //   // .illu_design의 자식 요소들 중 .banner의 자식 요소들만 스크롤 가능하게 만듦
-    //  // $('body').css('overflow-y', 'hidden');
-    //   const boardEl = $('.banner_warp');
-    //   const swiper = new Swiper('.swiper1',{
-    //     //initialSlide: 7,
-    //     direction: "vertical",
-    //     slidesPerView : '2',
-    //     spaceBetween : 15,
-    //     mousewheel: {
-    //       enabled: true,
-    //     },
-    //     reverse: false,
-    //     simulateTouch: true,
-    //     allowTouchMove: true,
-    //     pagination : false,
-    //   });
-    //   const swipe = new Swiper('.swiper2', {
-    //     direction: "column",
-    //     slidesPerView : '2',
-    //     spaceBetween : 15,
-    //     mousewheel: {
-    //       enabled: true,
-    //     },
-    //     simulateTouch: true,
-    //     allowTouchMove: true,
-    //     pagination : false,
-    //   });
-    //   $('.banner_wrap').on('mousewheel', function(event) {
-    //     event.preventDefault();
-    //     swiper1.mousewheel.event(event);
-    //     swiper2.mousewheel.event(event);
-    //   });
-    //   boardEl.on('scroll', function() {
-    //     const scrollTop = boardEl.scrollTop();
-    //     swiper1.slideTo(Math.round(scrollTop / boardEl.height()));
-    //   });
-    // }
-    ////////////
   });
 
-  // // 이미지 스크롤 완료 여부를 저장하는 변수
-  // let isBannerScrollFinished = false;
+  gsap.registerPlugin(ScrollTrigger);
 
-  // // 이미지 스크롤 완료 후 .banner_wrap 스크롤 활성화
-  // function activateBannerWrapScroll() {
-  //   if (isBannerScrollFinished = true) {
-  //     // 이미지 스크롤이 완료되었다면 .banner_wrap 스크롤 활성화
-  //     const bannerWrap = document.querySelector('body');
-  //     bannerWrap.style.overflowY = 'auto';
-  //   }
-  // }
-
-  // // 이미지 스크롤 완료 여부 감지 함수
-  // function handleBannerScrollFinish(event) {
-  //   const swiperWrapper = event.target;
-  //   const { scrollLeft, scrollWidth, clientWidth } = swiperWrapper;
-  //   if (scrollLeft + clientWidth >= scrollWidth) {
-  //     // 이미지 스크롤이 끝까지 이동한 경우
-  //     isBannerScrollFinished = true;
-  //     activateBannerWrapScroll();
-  //   }
-  // }
-
-  // // .swiper-wrapper 요소에 스크롤 이벤트 리스너 등록
-  // const swiperWrappers = document.querySelectorAll('.swiper-wrapper');
-  // swiperWrappers.forEach(swiperWrapper => {
-  //   swiperWrapper.addEventListener('scroll', handleBannerScrollFinish);
-  // });
-  // JavaScript 코드
-  // gsap 라이브러리 로드
-  // gsap.registerPlugin(ScrollTrigger);
-
-  // const illuImg = document.querySelector('.illu_img');
-  // const bannerItems = document.querySelectorAll('.banner_item');
-  // const banner2Items = document.querySelectorAll('.banner_item1');
+  const showDemo = () => {
+    document.scrollingElement.scrollTo(0, 0);
   
-  // const windowHeight = window.innerHeight;
-  // const illuImgHeight = illuImg.offsetHeight;
+    const sec04 = document.querySelector('.sec04');
+    const scrollingDivs = sec04.querySelectorAll('.scrolling');
+    scrollingDivs.forEach((scrollingDiv, index) => {
+      const section = sec04;
+      const w = scrollingDiv.querySelector('.wrapper');
+      const [x, xEnd] = (index % 2) ? ['100%', (w.scrollWidth - section.offsetWidth) * -1] : [w.scrollWidth * -1, 0];
+      gsap.fromTo(w, { x }, {
+        x: xEnd,
+        scrollTrigger: {
+          trigger: section,
+          scrub: .5
+        }
+      });
+    });
+  };
   
-  // window.addEventListener('scroll', () => {
-  //   const scrollTop = window.scrollY;
-  
-  //   if (scrollTop >= illuImgHeight - windowHeight) {
-  //     document.body.style.overflow = 'hidden'; // 스크롤 막기
-  //   } else {
-  //     document.body.style.overflow = 'auto'; // 스크롤 허용
-  //   }
-  // });
-  
-  // gsap.to(bannerItems, {
-  //   yPercent: -100,
-  //   scrollTrigger: {
-  //     trigger: bannerItems,
-  //     pin: true,
-  //     start: 'top top',
-  //     end: 'bottom bottom',
-  //     scrub: true,
-  //     markers: true,
-  //   },
-  // });
-  // gsap.timeline({  
-  //   scrollTrigger: {
-  //     trigger: ".illu_design", // 객체기준범위
-  //     pin: true, // 고정
-  //     start: "top top", // 시작점
-  //     end: "bottom bottom", // 끝점
-  //     scrub: 10, // 모션바운스
-  //     markers: true, // 개발가이드선
-  //     onLeave: function(){ // 끝나는지점 callback함수
-  //       console.log('end');
-  //     }
-  //   }
-  // })
-  // .to(bannerItems, {duration: 3000, opacity: 0, yPercent: -100})
+  showDemo();
 
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: ".grid-container",
-      start: "top top",
-      end: () => innerHeight * 2,
-      scrub: 2,
-      pin: ".grid",
-      anticipatePin: 1
-    }
+
+  //푸터 메일 팝업
+  $('.gform').submit(function(){
+    $('.send_pop_bg').fadeIn()
   })
-  .set(".gridBlock:not(.centerBlock)", {autoAlpha: 0})
-  .to(".gridBlock:not(.centerBlock)", {duration: 0.1, autoAlpha: 1}, 0.001)
-  .from(".gridLayer", {
-    scale: 3.3333,
-    ease: "none",
+
+  var burger = $('.send_pop_close>div>div');
+
+  burger.each(function(index){
+    var $this = $(this);
+    
+    $this.on('click', function(e){
+      e.preventDefault();
+      $(this).toggleClass('close');
+      timer = setTimeout(function(){
+        $('.send_pop_bg').fadeOut();
+      },1000)
+    })
   });
   
-  
-  //Images to make it look better, not related to the effect
-  const size = Math.max(innerWidth, innerHeight);
-  gsap.set('.gridBlock', {backgroundImage: i => `url(https://picsum.photos/${size}/${size}?random=${i})`});
-  
-  const bigImg = new Image;    
-  bigImg.addEventListener("load", function () {
-    gsap.to(".centerPiece .gridBlock", {autoAlpha: 1, duration: 0.5});
-  });
-  
-  bigImg.src = `https://picsum.photos/${size}/${size}?random=50`;
-
-
+  $('.gnb_btn').click(function(){
+    var hbg = $('header .gnb ul')
+    hbg.slideToggle().css({display:'flex'});
+  })
   //////////////////////
 });
