@@ -1,10 +1,12 @@
 $(document).ready(function () {
-  $(".mv").append("<div class='intro'></div>"); // main 태그에 intro 클래스를 가진 div 추가
+  $(".mv").append("<div class='intro'></div>");
   $(".intro").append("<div class='intro_logo'>");
-  $(".intro_logo").animate({ rotate: "25deg" }, 500, function () {
+  $(".intro_logo").append("<div class='intro_logo_inner'>");
+  $(".intro_logo").animate({ opacity: '1' }, 500, function () {
     $(".mv_bar").animate({ width: "10px", borderRadius: "50%" }, 1000);
     $(".intro").animate({ top: "-60%", borderRadius: "60%" }, 1000);
   });
+  $(".intro_logo_inner").css({ scale:'1' });
   // 메인 백그라운드
   $(function bgCir() {
     const cir1 = document.createElement("div");
@@ -243,6 +245,12 @@ $(document).ready(function () {
       $('.max').animate({ 'height': '80%' });
     } else {
       allDiv.css({ 'height': '0' });
+    }
+
+    if(scrollTop >= $('.sec04').offset().top - 300){
+      $('.gall_wrap').css({opacity:'1'});
+    }else{
+      $('.gall_wrap').css({opacity:'0'})
     }
 
   });

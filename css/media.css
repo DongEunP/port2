@@ -132,6 +132,7 @@
   .con_btn>a{
     width: 70px;
     padding: 5px;
+    border-radius: 5px;
   }
 
   .sec04 .main_img .gall_txt{
@@ -158,8 +159,18 @@
   .sec04 .gall_wrap .etc_btn{
     margin: 0;
   }
-  .sec04 img{
+  .sec04 .wrapper{
+    width: fit-content;
+  }
+  .sec04 .wrapper li{
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    margin-left: 10px;
+  }
+  .sec04 .wrapper li img{
     width: 100%;
+    height: 100%;
   }
   .demo-text .text{
     font-size: 3rem;
@@ -200,6 +211,7 @@
   .skill{
     height: 200px;
     overflow: hidden;
+    border-radius: 15px;
   }
 
   footer li{
