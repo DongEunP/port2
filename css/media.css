@@ -86,9 +86,18 @@
     width: 30px;
     height: 2px;
     background-color: #000;
+    transition: 0.5s;
   }
   .gnb_btn>span:not(:first-child){
     margin-top: 8px;
+  }
+  .gnb_btn>span:nth-child(1).active{
+    rotate: 45deg;
+    transform: translateX(25%);
+  }
+  .gnb_btn>span:nth-child(3).active{
+    rotate: -45deg;
+    transform: translateX(25%);
   }
   header .gnb ul{
     position: absolute;
